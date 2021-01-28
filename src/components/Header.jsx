@@ -1,15 +1,17 @@
 import React from "react";
-import { makeStyles, Typography } from "@material-ui/core";
+import { Typography } from "@material-ui/core";
 
 const Header = () => {
-	const classes = useStyles();
 	return (
-		<Typography className={classes.paper} variant="h5" display="block">
-			CalendarToDo
-		</Typography>
+		<>
+			<Typography variant="h5" display="block">
+				CalendarToDo
+			</Typography>
+			<Typography variant="caption">
+				Add a Schedule and a Todos
+			</Typography>
+		</>
 	);
 };
-
-const useStyles = makeStyles({});
 
 export default Header;
