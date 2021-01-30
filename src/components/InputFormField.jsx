@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import {
 	Button,
 	TextField,
@@ -5,51 +6,56 @@ import {
 	FormControlLabel,
 	Checkbox,
 	Grid,
+	Typography,
 } from "@material-ui/core";
 import AddIcon from "@material-ui/icons/Add";
-import React, { useState } from "react";
-
 import DateFnsUtils from "@date-io/date-fns";
 import {
 	MuiPickersUtilsProvider,
 	KeyboardDatePicker,
 } from "@material-ui/pickers";
 
+import { theme } from "../utils/theme";
+
 const InputFormField = () => {
 	const [title, setTitle] = useState("");
 	const [body, setBody] = useState("");
 	const [selectedDate, setSelectedDate] = useState(new Date());
-	const [isChecked, setIsChecked] = useState(false);
+	const [isChecked, setIsChecked] = useState(true);
 
 	const handleDateChange = (date) => {
 		setSelectedDate(date);
 	};
 
 	const handleIsChecked = (e) => {
-		setIsChecked({ ...isChecked, [e.target.name]: e.target.checked });
+		setIsChecked(e.target.checked);
 	};
 
 	return (
 		<>
-			<Divider style={{ margin: "12px 10px" }} />
+			<Divider style={theme.divider} />
+			<Typography variant="caption">
+				タイトルと内容を入力してください、日付を指定するとスケジュールとして登録します
+			</Typography>
 			<Grid container>
 				<Grid item xs={3}>
 					<TextField
-						style={{ marginRight: "8px" }}
+						style={theme.textField}
 						value={title}
 						id="standard-basic"
 						variant="outlined"
-						label="タイトルを入力してください"
+						label="タイトル"
 						onChange={(e) => setTitle(e.target.value)}
 					/>
 				</Grid>
 
 				<Grid item xs={9}>
 					<TextField
+						style={theme.textField}
 						value={body}
 						variant="outlined"
 						id="standard-basic"
-						label="スケジュールかTODOを入力してください"
+						label="内容を入力"
 						fullWidth={true}
 						onChange={(e) => setBody(e.target.value)}
 					/>
@@ -98,6 +104,7 @@ const InputFormField = () => {
 					</Button>
 				</Grid>
 			</Grid>
+			<Divider style={theme.divider} />
 		</>
 	);
 };
