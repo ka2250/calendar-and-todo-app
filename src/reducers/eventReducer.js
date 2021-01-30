@@ -6,6 +6,10 @@ const eventReducer = ({ state = [], action }) => {
 			const id = length === 0 ? 1 : state[length - 1].id + 1;
 
 			return [...state, { id, ...event }];
+
+		case "DELETE_EVENT":
+			return state.filter((event) => state.id !== action.id);
+
 		default:
 			return state;
 	}
