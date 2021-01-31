@@ -35,7 +35,7 @@ const InputFormField = () => {
 		<>
 			<Divider style={theme.divider} />
 			<Typography variant="caption">
-				タイトルと内容を入力してください、日付を指定するとスケジュールとして登録します
+				タイトルと内容を入力してください、チェックボックスにチェックを入れるとTODOに登録されます
 			</Typography>
 			<Grid container>
 				<Grid item xs={3}>

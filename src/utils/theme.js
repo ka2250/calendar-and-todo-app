@@ -14,4 +14,7 @@ export const theme = createMuiTheme({
 	divider: {
 		margin: "14px 0px",
 	},
+	iconButton: {
+		marginRight: "8px",
+	},
 });
