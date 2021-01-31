@@ -9,7 +9,6 @@ const SchedulesArea = () => {
 			<Box maxWidth="md" style={theme.box}>
 				<Typography variant="h6">Schedule List</Typography>
 				<Schedule />
-				<Schedule />
 			</Box>
 		</>
 	);

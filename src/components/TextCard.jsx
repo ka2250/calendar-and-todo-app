@@ -30,7 +30,9 @@ const TextCard = (props) => {
 					</IconButton>
 					<Typography variant="subtitle1">{props.title}</Typography>
 				</Box>
-				<Typography variant="subtitle2">{props.body}</Typography>
+				<Typography variant="subtitle2" style={theme.typography}>
+					{props.body}
+				</Typography>
 			</CardContent>
 		</Card>
 	);
