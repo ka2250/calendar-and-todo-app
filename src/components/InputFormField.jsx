@@ -3,8 +3,6 @@ import {
 	Button,
 	TextField,
 	Divider,
-	FormControlLabel,
-	Checkbox,
 	Grid,
 	Typography,
 } from "@material-ui/core";
@@ -21,20 +19,15 @@ const InputFormField = () => {
 	const [title, setTitle] = useState("");
 	const [body, setBody] = useState("");
 	const [selectedDate, setSelectedDate] = useState(new Date());
-	const [isChecked, setIsChecked] = useState(true);
 
 	const handleDateChange = (date) => {
 		setSelectedDate(date);
 	};
 
-	const handleIsChecked = (e) => {
-		setIsChecked(e.target.checked);
-	};
-
 	return (
 		<>
 			<Divider style={theme.divider} />
-			<Typography variant="caption">
+			<Typography variant="caption" style={theme.typography}>
 				タイトルと内容を入力してください、チェックボックスにチェックを入れるとTODOに登録されます
 			</Typography>
 			<Grid container>
@@ -63,7 +56,7 @@ const InputFormField = () => {
 			</Grid>
 
 			<Grid container alignItems="center">
-				<Grid item xs={4}>
+				<Grid item xs={10}>
 					<MuiPickersUtilsProvider utils={DateFnsUtils}>
 						<KeyboardDatePicker
 							disableToolbar
@@ -80,19 +73,7 @@ const InputFormField = () => {
 						/>
 					</MuiPickersUtilsProvider>
 				</Grid>
-				<Grid item xs={5}>
-					<FormControlLabel
-						control={
-							<Checkbox
-								checked={isChecked}
-								onClick={handleIsChecked}
-								name="checked"
-							/>
-						}
-						label="Todoとして追加する"
-					/>
-				</Grid>
-				<Grid item xs={3}>
+				<Grid item xs={2}>
 					<Button
 						variant="contained"
 						color="secondary"
