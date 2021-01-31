@@ -5,8 +5,8 @@ import React from "react";
 import { theme } from "./utils/theme";
 import Header from "./components/Header";
 import InputFormField from "./components/InputFormField";
-import TodosArea from "./components/TodosArea";
 import SchedulesArea from "./components/SchedulesArea";
+import DisplayCalendar from "./components/Calendar";
 
 const App = () => {
 	return (
@@ -14,8 +14,8 @@ const App = () => {
 			<Container maxWidth="md">
 				<Header />
 				<InputFormField />
-				<TodosArea />
 				<SchedulesArea />
+				<DisplayCalendar />
 			</Container>
 		</ThemeProvider>
 	);
