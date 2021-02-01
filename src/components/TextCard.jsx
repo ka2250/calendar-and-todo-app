@@ -8,6 +8,8 @@ import {
 	Typography,
 } from "@material-ui/core";
 import GradeIcon from "@material-ui/icons/Grade";
+import DoneOutlineIcon from "@material-ui/icons/DoneOutline";
+import DeleteIcon from "@material-ui/icons/Delete";
 
 import { theme } from "../utils/theme";
 
@@ -33,6 +35,27 @@ const TextCard = (props) => {
 				<Typography variant="subtitle2" style={theme.typography}>
 					{props.body}
 				</Typography>
+				<Box
+					display="flex"
+					justifyContent="flex-start"
+					alignItems="center"
+				>
+					<Box flexGrow={1}>
+						<Typography variant="body2" style={theme.typography}>
+							2021/3/23 9:00 ~
+						</Typography>
+					</Box>
+					<Box>
+						<IconButton color="primary" size="small">
+							<DoneOutlineIcon />
+						</IconButton>
+					</Box>
+					<Box>
+						<IconButton color="inherit" size="small">
+							<DeleteIcon />
+						</IconButton>
+					</Box>
+				</Box>
 			</CardContent>
 		</Card>
 	);
