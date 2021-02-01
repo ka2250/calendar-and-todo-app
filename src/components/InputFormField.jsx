@@ -7,22 +7,13 @@ import {
 	Typography,
 } from "@material-ui/core";
 import AddIcon from "@material-ui/icons/Add";
-import DateFnsUtils from "@date-io/date-fns";
-import {
-	MuiPickersUtilsProvider,
-	KeyboardDatePicker,
-} from "@material-ui/pickers";
 
 import { theme } from "../utils/theme";
+import DatePicker from "./DatePicker";
 
 const InputFormField = () => {
 	const [title, setTitle] = useState("");
 	const [body, setBody] = useState("");
-	const [selectedDate, setSelectedDate] = useState(new Date());
-
-	const handleDateChange = (date) => {
-		setSelectedDate(date);
-	};
 
 	return (
 		<>
@@ -57,21 +48,7 @@ const InputFormField = () => {
 
 			<Grid container alignItems="center">
 				<Grid item xs={10}>
-					<MuiPickersUtilsProvider utils={DateFnsUtils}>
-						<KeyboardDatePicker
-							disableToolbar
-							variant="inline"
-							format="MM/dd/yyyy"
-							margin="normal"
-							id="date-picker-inline"
-							value={selectedDate}
-							label="日付を指定してください"
-							onChange={handleDateChange}
-							KeyboardButtonProps={{
-								"aria-label": "change date",
-							}}
-						/>
-					</MuiPickersUtilsProvider>
+					<DatePicker />
 				</Grid>
 				<Grid item xs={2}>
 					<Button
