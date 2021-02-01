@@ -19,4 +19,7 @@ export const theme = createMuiTheme({
 	iconButton: {
 		marginRight: "8px",
 	},
+	datePicker: {
+		margin: "9px 0px",
+	},
 });
