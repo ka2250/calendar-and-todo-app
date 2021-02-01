@@ -6,7 +6,6 @@ import { theme } from "./utils/theme";
 import Header from "./components/Header";
 import InputFormField from "./components/InputFormField";
 import SchedulesArea from "./components/SchedulesArea";
-import DisplayCalendar from "./components/Calendar";
 
 const App = () => {
 	return (
@@ -15,7 +14,6 @@ const App = () => {
 				<Header />
 				<InputFormField />
 				<SchedulesArea />
-				<DisplayCalendar />
 			</Container>
 		</ThemeProvider>
 	);
