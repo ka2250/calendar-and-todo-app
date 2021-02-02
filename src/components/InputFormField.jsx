@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import {
 	Button,
 	TextField,
@@ -10,10 +10,25 @@ import AddIcon from "@material-ui/icons/Add";
 
 import { theme } from "../utils/theme";
 import DatePicker from "./DatePicker";
+import AppContext from "../contexts/AppContext";
 
 const InputFormField = () => {
+	const { dispatch } = useContext(AppContext);
 	const [title, setTitle] = useState("");
 	const [body, setBody] = useState("");
+
+	const unClear = title === "" || body === "";
+
+	const addEvent = (e) => {
+		e.preventDefault();
+		dispatch({
+			type: "CREATE_EVENT",
+			title,
+			body,
+		});
+		setTitle("");
+		setBody("");
+	};
 
 	return (
 		<>
@@ -24,24 +39,24 @@ const InputFormField = () => {
 			<Grid container>
 				<Grid item xs={3}>
 					<TextField
-						style={theme.textField}
 						value={title}
-						id="standard-basic"
+						id={title}
+						onChange={(e) => setTitle(e.target.value)}
+						style={theme.textField}
 						variant="outlined"
 						label="タイトル"
-						onChange={(e) => setTitle(e.target.value)}
 					/>
 				</Grid>
 
 				<Grid item xs={9}>
 					<TextField
-						style={theme.textField}
 						value={body}
+						id={body}
+						onChange={(e) => setBody(e.target.value)}
+						style={theme.textField}
 						variant="outlined"
-						id="standard-basic"
 						label="内容を入力"
 						fullWidth={true}
-						onChange={(e) => setBody(e.target.value)}
 					/>
 				</Grid>
 			</Grid>
@@ -52,11 +67,14 @@ const InputFormField = () => {
 				</Grid>
 				<Grid item xs={2}>
 					<Button
+						onClick={addEvent}
 						variant="contained"
 						color="secondary"
 						startIcon={<AddIcon />}
 						fullWidth={true}
 						size="medium"
+						type="button"
+						disabled={unClear}
 					>
 						追加する
 					</Button>
