@@ -18,6 +18,7 @@ const DatePicker = () => {
 			<SingleDatePicker
 				id="date"
 				placeholder="予定日を設定"
+				numberOfMonths={1}
 				noBorder={true}
 				date={date}
 				onDateChange={(date) => setDate(date)}

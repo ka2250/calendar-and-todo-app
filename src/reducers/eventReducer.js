@@ -1,4 +1,5 @@
-const eventReducer = ({ state = [], action }) => {
+const eventReducer = (state = [], action) => {
+	// state　は配列，　action　events(ex. クリックなど)
 	switch (action.type) {
 		case "CREATE_EVENT":
 			const event = { title: action.title, body: action.body };
@@ -8,7 +9,7 @@ const eventReducer = ({ state = [], action }) => {
 			return [...state, { id, ...event }];
 
 		case "DELETE_EVENT":
-			return state.filter((event) => state.id !== action.id);
+			return state.filter((event) => event.id !== action.id);
 
 		default:
 			return state;
