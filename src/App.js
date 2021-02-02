@@ -17,8 +17,6 @@ const App = () => {
 
 	const [state, dispatch] = useReducer(reducer, initialState);
 
-	console.log(state);
-
 	return (
 		<ThemeProvider theme={theme}>
 			<AppContext.Provider value={{ state, dispatch }}>
