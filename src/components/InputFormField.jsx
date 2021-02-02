@@ -40,7 +40,6 @@ const InputFormField = () => {
 				<Grid item xs={3}>
 					<TextField
 						value={title}
-						id={title}
 						onChange={(e) => setTitle(e.target.value)}
 						style={theme.textField}
 						variant="outlined"
@@ -51,7 +50,6 @@ const InputFormField = () => {
 				<Grid item xs={9}>
 					<TextField
 						value={body}
-						id={body}
 						onChange={(e) => setBody(e.target.value)}
 						style={theme.textField}
 						variant="outlined"

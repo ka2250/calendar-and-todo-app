@@ -1,30 +1,20 @@
 import React, { useState } from "react";
 // import moment from 'moment';
-import { SingleDatePicker } from "react-dates";
 import { Box } from "@material-ui/core";
-
-import "moment/locale/ja";
-import "react-dates/initialize";
-import "react-dates/lib/css/_datepicker.css";
+import { KeyboardDatePicker } from "@material-ui/pickers";
 
 import { theme } from "../utils/theme";
 
 const DatePicker = () => {
-	const [date, setDate] = useState(null);
-	const [focused, setFocused] = useState(null);
+	const [selectedDate, handleDateChange] = useState(new Date());
 
 	return (
 		<Box style={theme.datePicker}>
-			<SingleDatePicker
-				id="date"
-				placeholder="予定日を設定"
-				numberOfMonths={1}
-				noBorder={true}
-				date={date}
-				onDateChange={(date) => setDate(date)}
-				focused={focused}
-				onFocusChange={(focused) => setFocused(focused)}
-				onClose={(focused) => setFocused(false)}
+			<KeyboardDatePicker
+				placeholder="2018/10/10"
+				value={selectedDate}
+				onChange={(date) => handleDateChange(date)}
+				format="yyyy/MM/dd"
 			/>
 		</Box>
 	);

@@ -14,7 +14,7 @@ const SchedulesList = () => {
 				<Grid container display="flex" spacing={2}>
 					{state.eventReducer.map((event, index) => {
 						return (
-							<Grid item xs={6}>
+							<Grid item xs={6} key={index}>
 								<Card>
 									<CardContent>
 										<Schedule index={index} event={event} />

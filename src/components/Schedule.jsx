@@ -1,12 +1,29 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Box, IconButton, Typography } from "@material-ui/core";
 import GradeIcon from "@material-ui/icons/Grade";
 import DoneOutlineIcon from "@material-ui/icons/DoneOutline";
 import DeleteIcon from "@material-ui/icons/Delete";
 
 import { theme } from "../utils/theme";
+import AppContext from "../contexts/AppContext";
 
 const Schedule = ({ event }) => {
+	const { dispatch } = useContext(AppContext);
+
+	const handleDelete = (e) => {
+		e.preventDefault();
+		const id = event.id;
+		const result = window.confirm("スケジュールを削除しますか？");
+		if (result) {
+			dispatch({
+				type: "DELETE_EVENT",
+				id,
+			});
+		} else {
+			return;
+		}
+	};
+
 	return (
 		<>
 			<Box
@@ -39,7 +56,11 @@ const Schedule = ({ event }) => {
 					</IconButton>
 				</Box>
 				<Box>
-					<IconButton color="inherit" size="small">
+					<IconButton
+						color="inherit"
+						size="small"
+						onClick={handleDelete}
+					>
 						<DeleteIcon />
 					</IconButton>
 				</Box>
