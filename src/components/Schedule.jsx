@@ -45,9 +45,11 @@ const Schedule = ({ event }) => {
 				{event.body}
 			</Typography>
 
-			<Box display="flex" justifyContent="flex-start" alignItems="center">
-				<Box flexGrow={1}>
-					<Button startIcon={<DoneOutlineIcon />}>Complete</Button>
+			<Box display="flex" justifyContent="flex-end" alignItems="center">
+				<Box>
+					<Button color="primary" startIcon={<DoneOutlineIcon />}>
+						Complete
+					</Button>
 				</Box>
 				<Box>
 					<IconButton color="secondary" onClick={handleDelete}>
