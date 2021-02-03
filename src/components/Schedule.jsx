@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
-import { Box, IconButton, Typography } from "@material-ui/core";
-import GradeIcon from "@material-ui/icons/Grade";
+import { Box, Button, IconButton, Typography } from "@material-ui/core";
 import DoneOutlineIcon from "@material-ui/icons/DoneOutline";
 import DeleteIcon from "@material-ui/icons/Delete";
+import moment from "moment";
 
 import { theme } from "../utils/theme";
 import AppContext from "../contexts/AppContext";
@@ -24,43 +24,33 @@ const Schedule = ({ event }) => {
 		}
 	};
 
+	// const handleComplete = (e) => {
+	// 	e.preventDefault();
+
+	// 	dispatch({
+	// 		type: "COMPLETE_EVENT",
+	// 		descrption:
+	// 	})
+	// }
+
 	return (
 		<>
-			<Box
-				display="flex"
-				justifyContent="flex-start"
-				alignItems="center"
-				style={theme.box}
-			>
-				<IconButton
-					area-label="favorite"
-					size="small"
-					style={theme.iconButton}
-				>
-					<GradeIcon />
-				</IconButton>
-				<Typography variant="subtitle1">{event.title}</Typography>
-			</Box>
-			<Typography variant="subtitle2" style={theme.typography}>
+			<Typography variant="body2" style={theme.typography}>
+				{moment(event.date).format("YYYY-MM-DD")}
+			</Typography>
+
+			<Typography variant="h5">{event.title}</Typography>
+
+			<Typography variant="caption" style={{ color: "#2a2a2a" }}>
 				{event.body}
 			</Typography>
+
 			<Box display="flex" justifyContent="flex-start" alignItems="center">
 				<Box flexGrow={1}>
-					<Typography variant="body2" style={theme.typography}>
-						2021/3/23 9:00 ~
-					</Typography>
+					<Button startIcon={<DoneOutlineIcon />}>Complete</Button>
 				</Box>
 				<Box>
-					<IconButton color="primary" size="small">
-						<DoneOutlineIcon />
-					</IconButton>
-				</Box>
-				<Box>
-					<IconButton
-						color="inherit"
-						size="small"
-						onClick={handleDelete}
-					>
+					<IconButton color="secondary" onClick={handleDelete}>
 						<DeleteIcon />
 					</IconButton>
 				</Box>

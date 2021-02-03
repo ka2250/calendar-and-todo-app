@@ -11,7 +11,7 @@ const SchedulesList = () => {
 		<>
 			<Box maxWidth="md" style={theme.box}>
 				<Typography variant="h6">Schedule List</Typography>
-				<Grid container display="flex" spacing={2}>
+				<Grid container display="flex" spacing={4}>
 					{state.eventReducer.map((event, index) => {
 						return (
 							<Grid item xs={6} key={index}>
