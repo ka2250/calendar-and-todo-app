@@ -37,7 +37,7 @@ const InputFormField = () => {
 		<>
 			<Divider style={theme.divider} />
 			<Typography variant="caption" style={theme.typography}>
-				タイトルと内容を入力してください、チェックボックスにチェックを入れるとTODOに登録されます
+				タイトルと内容を入力してください
 			</Typography>
 			<Grid container>
 				<Grid item xs={3}>
