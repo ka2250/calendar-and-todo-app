@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
 import {
+	Box,
 	Button,
 	TextField,
 	Divider,
@@ -7,15 +8,16 @@ import {
 	Typography,
 } from "@material-ui/core";
 import AddIcon from "@material-ui/icons/Add";
+import { KeyboardDatePicker } from "@material-ui/pickers";
 
 import { theme } from "../utils/theme";
-import DatePicker from "./DatePicker";
 import AppContext from "../contexts/AppContext";
 
 const InputFormField = () => {
 	const { dispatch } = useContext(AppContext);
 	const [title, setTitle] = useState("");
 	const [body, setBody] = useState("");
+	const [date, handleDate] = useState(new Date());
 
 	const unClear = title === "" || body === "";
 
@@ -25,6 +27,7 @@ const InputFormField = () => {
 			type: "CREATE_EVENT",
 			title,
 			body,
+			date,
 		});
 		setTitle("");
 		setBody("");
@@ -61,7 +64,14 @@ const InputFormField = () => {
 
 			<Grid container alignItems="center">
 				<Grid item xs={10}>
-					<DatePicker />
+					<Box style={theme.datePicker}>
+						<KeyboardDatePicker
+							placeholder="予定日を設定"
+							value={date}
+							onChange={(date) => handleDate(date)}
+							format="yyyy/MM/dd"
+						/>
+					</Box>
 				</Grid>
 				<Grid item xs={2}>
 					<Button
