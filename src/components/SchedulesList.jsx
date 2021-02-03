@@ -10,7 +10,9 @@ const SchedulesList = () => {
 	return (
 		<>
 			<Box maxWidth="md" style={theme.box}>
-				<Typography variant="h6">Schedule List</Typography>
+				<Typography variant="h5" style={{ margin: "12px 4px" }}>
+					Schedule List
+				</Typography>
 				<Grid container display="flex" spacing={4}>
 					{state.eventReducer.map((event, index) => {
 						return (
