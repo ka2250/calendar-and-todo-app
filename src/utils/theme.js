@@ -2,8 +2,8 @@ import { createMuiTheme } from "@material-ui/core/styles";
 
 export const theme = createMuiTheme({
 	typography: {
+		margin: "10px 0px",
 		fontFamily: ["Fira Code", "monospace"].join(","),
-		margin: "8px 0px",
 	},
 	box: {
 		marginTop: "10px",
