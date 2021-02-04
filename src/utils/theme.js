@@ -25,4 +25,8 @@ export const theme = createMuiTheme({
 	button: {
 		margin: "11px 8px",
 	},
+	isPrimary: {
+		backgroundColor: "#c4dfff",
+		color: "#fff",
+	},
 });
