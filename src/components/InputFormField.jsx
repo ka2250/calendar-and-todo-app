@@ -77,7 +77,7 @@ const InputFormField = () => {
 					<Button
 						onClick={addEvent}
 						variant="contained"
-						color="secondary"
+						color="inherit"
 						startIcon={<AddIcon />}
 						fullWidth={true}
 						size="medium"
