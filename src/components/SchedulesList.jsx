@@ -30,13 +30,14 @@ const SchedulesList = () => {
 				>
 					すべてを削除する
 				</Button>
+
 				<Grid container display="flex" spacing={4}>
-					{state.eventReducer.map((event, index) => {
+					{state.eventReducer.map((event, id) => {
 						return (
-							<Grid item xs={6} key={index}>
+							<Grid item xs={6} key={id}>
 								<Card>
 									<CardContent>
-										<Schedule index={index} event={event} />
+										<Schedule event={event} />
 									</CardContent>
 								</Card>
 							</Grid>
