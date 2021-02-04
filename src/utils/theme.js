@@ -22,4 +22,7 @@ export const theme = createMuiTheme({
 	datePicker: {
 		margin: "9px 0px",
 	},
+	button: {
+		margin: "11px 8px",
+	},
 });
