@@ -1,18 +1,35 @@
 import React, { useContext } from "react";
-import { Box, Typography, Grid, Card, CardContent } from "@material-ui/core";
+import { Button, Box, Grid, Card, CardContent } from "@material-ui/core";
 
 import Schedule from "./Schedule";
 import { theme } from "../utils/theme";
 import AppContext from "../contexts/AppContext";
 
 const SchedulesList = () => {
-	const { state } = useContext(AppContext);
+	const { state, dispatch } = useContext(AppContext);
+	const isDisable = state.eventReducer.length === 0;
+
+	const handleAllDelete = (e) => {
+		e.preventDefault();
+		const result = window.confirm("すべてのスケジュールを削除しますか？");
+		if (result) {
+			dispatch({ type: "DELETE_ALL" });
+		} else {
+			return;
+		}
+	};
+
 	return (
 		<>
 			<Box maxWidth="md" style={theme.box}>
-				<Typography variant="h5" style={{ margin: "12px 4px" }}>
-					Schedule List
-				</Typography>
+				<Button
+					onClick={handleAllDelete}
+					disabled={isDisable}
+					style={theme.button}
+					className="MuiButton-outlinedSecondary"
+				>
+					すべてを削除する
+				</Button>
 				<Grid container display="flex" spacing={4}>
 					{state.eventReducer.map((event, index) => {
 						return (
