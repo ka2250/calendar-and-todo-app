@@ -70,6 +70,7 @@ const InputFormField = () => {
 							value={date}
 							onChange={(date) => handleDate(date)}
 							format="yyyy/MM/dd"
+							minDate={new Date()}
 						/>
 					</Box>
 				</Grid>
