@@ -7,7 +7,7 @@ import AppContext from "../contexts/AppContext";
 
 const SchedulesList = () => {
 	const { state, dispatch } = useContext(AppContext);
-	const isDisable = state.eventReducer.length === 0;
+	const isDisable = state.eventReducer.length <= 2;
 
 	const handleAllDelete = (e) => {
 		e.preventDefault();
@@ -26,6 +26,7 @@ const SchedulesList = () => {
 					onClick={handleAllDelete}
 					disabled={isDisable}
 					style={theme.button}
+					variant="outlined"
 					color="secondary"
 				>
 					すべてを削除する
