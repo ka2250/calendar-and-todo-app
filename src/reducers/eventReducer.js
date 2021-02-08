@@ -1,6 +1,4 @@
 const eventReducer = (state = [], action) => {
-	// state　は配列，　action　events(ex. クリックなど)
-
 	const length = state.length;
 	const id = length + 1;
 
