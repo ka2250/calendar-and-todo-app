@@ -2,7 +2,6 @@ import { createMuiTheme } from "@material-ui/core/styles";
 
 export const theme = createMuiTheme({
 	typography: {
-		margin: "10px 0px",
 		fontFamily: ["Fira Code", "monospace"].join(","),
 	},
 	box: {
@@ -24,9 +23,5 @@ export const theme = createMuiTheme({
 	},
 	button: {
 		margin: "11px 8px",
-	},
-	isPrimary: {
-		backgroundColor: "#c4dfff",
-		color: "#fff",
 	},
 });
