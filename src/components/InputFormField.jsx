@@ -14,12 +14,13 @@ import { theme } from "../utils/theme";
 import AppContext from "../contexts/AppContext";
 
 const InputFormField = () => {
-	const { dispatch } = useContext(AppContext);
+	const { state, dispatch } = useContext(AppContext);
 	const [title, setTitle] = useState("");
 	const [body, setBody] = useState("");
 	const [date, handleDate] = useState(new Date());
 
 	const unClear = title === "" || body === "";
+	const max = state.eventReducer.length === 10;
 
 	const addEvent = (e) => {
 		e.preventDefault();
@@ -29,6 +30,7 @@ const InputFormField = () => {
 			body,
 			date,
 		});
+
 		setTitle("");
 		setBody("");
 	};
@@ -36,9 +38,20 @@ const InputFormField = () => {
 	return (
 		<>
 			<Divider style={theme.divider} />
-			<Typography variant="caption" style={theme.typography}>
-				タイトルと内容を入力してください
-			</Typography>
+			{max === true ? (
+				<Typography
+					variant="caption"
+					style={theme.typography}
+					color="secondary"
+				>
+					これ以上は登録できません
+				</Typography>
+			) : (
+				<Typography variant="caption" style={theme.typography}>
+					タイトルと内容を入力してください
+				</Typography>
+			)}
+
 			<Grid container>
 				<Grid item xs={3}>
 					<TextField
@@ -47,6 +60,7 @@ const InputFormField = () => {
 						style={theme.textField}
 						variant="outlined"
 						label="タイトル"
+						disabled={max === true ? true : false}
 					/>
 				</Grid>
 
@@ -58,6 +72,7 @@ const InputFormField = () => {
 						variant="outlined"
 						label="内容を入力"
 						fullWidth={true}
+						disabled={max === true ? true : false}
 					/>
 				</Grid>
 			</Grid>
@@ -71,6 +86,7 @@ const InputFormField = () => {
 							onChange={(date) => handleDate(date)}
 							format="yyyy/MM/dd"
 							minDate={new Date()}
+							disabled={max === true ? true : false}
 						/>
 					</Box>
 				</Grid>
