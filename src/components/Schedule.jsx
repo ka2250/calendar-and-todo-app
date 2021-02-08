@@ -20,12 +20,13 @@ const Schedule = ({ event }) => {
 		} else {
 			return;
 		}
+		console.log(id);
 	};
 
 	return (
 		<>
 			<Typography variant="subtitle1" style={{ margin: "10px 0" }}>
-				{moment(event.date).format("YYYY/MM/DD")}
+				[ID:{event.id}] {moment(event.date).format("YYYY/MM/DD")}
 			</Typography>
 
 			<Typography variant="h5">{event.title}</Typography>
