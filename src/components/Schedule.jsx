@@ -1,10 +1,8 @@
 import React, { useContext } from "react";
-import { Box, Button, IconButton, Typography } from "@material-ui/core";
-import DoneOutlineIcon from "@material-ui/icons/DoneOutline";
+import { Box, Button, Typography } from "@material-ui/core";
 import DeleteIcon from "@material-ui/icons/Delete";
 import moment from "moment";
 
-import { theme } from "../utils/theme";
 import AppContext from "../contexts/AppContext";
 
 const Schedule = ({ event }) => {
@@ -24,19 +22,10 @@ const Schedule = ({ event }) => {
 		}
 	};
 
-	// const handleComplete = (e) => {
-	// 	e.preventDefault();
-
-	// 	dispatch({
-	// 		type: "COMPLETE_EVENT",
-	// 		descrption:
-	// 	})
-	// }
-
 	return (
 		<>
-			<Typography variant="body2" style={theme.typography}>
-				{moment(event.date).format("YYYY-MM-DD")}
+			<Typography variant="subtitle1" style={{ margin: "10px 0" }}>
+				{moment(event.date).format("YYYY/MM/DD")}
 			</Typography>
 
 			<Typography variant="h5">{event.title}</Typography>
@@ -47,14 +36,15 @@ const Schedule = ({ event }) => {
 
 			<Box display="flex" justifyContent="flex-end" alignItems="center">
 				<Box>
-					<Button color="primary" startIcon={<DoneOutlineIcon />}>
-						Complete
+					<Button
+						variant="outlined"
+						color="secondary"
+						startIcon={<DeleteIcon />}
+						onClick={handleDelete}
+						size="small"
+					>
+						削除
 					</Button>
-				</Box>
-				<Box>
-					<IconButton color="secondary" onClick={handleDelete}>
-						<DeleteIcon />
-					</IconButton>
 				</Box>
 			</Box>
 		</>

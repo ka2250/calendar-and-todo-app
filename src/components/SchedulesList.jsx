@@ -26,7 +26,7 @@ const SchedulesList = () => {
 					onClick={handleAllDelete}
 					disabled={isDisable}
 					style={theme.button}
-					className="MuiButton-outlinedSecondary"
+					color="secondary"
 				>
 					すべてを削除する
 				</Button>
