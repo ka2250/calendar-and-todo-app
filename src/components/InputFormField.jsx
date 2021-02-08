@@ -33,6 +33,7 @@ const InputFormField = () => {
 
 		setTitle("");
 		setBody("");
+		handleDate(new Date());
 	};
 
 	return (
